@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Event' => [
-            'App\Listeners\EventListener',
+        'Overtrue\LaravelWechat\Events\WeChatUserAuthorized'=> [
+            'App\Listeners\WechatUserListener',
         ],
     ];
 

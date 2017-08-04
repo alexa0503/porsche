@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function () {
     Route::get('/', function () {
-        return 'weclome';
+        return view('welcome');
     });
 });

@@ -51,7 +51,7 @@ return [
             'middleware' => null,
             'as' => 'easywechat::',
         ],
-        'open_platform_serve_url' => 'open-platform-serve', // 开放平台服务URL
+        'open_platform_serve_url' => '/wechat', // 开放平台服务URL
     ],
 
     /*
@@ -73,11 +73,11 @@ return [
      * scopes：公众平台（snsapi_userinfo / snsapi_base），开放平台：snsapi_login
      * callback：OAuth授权完成后的回调页地址(如果使用中间件，则随便填写。。。)
      */
-    // 'oauth' => [
-    //     'only_wechat_browser' => false,
-    //     'scopes'   => array_map('trim', explode(',', env('WECHAT_OAUTH_SCOPES', 'snsapi_userinfo'))),
-    //     'callback' => env('WECHAT_OAUTH_CALLBACK', '/examples/oauth_callback.php'),
-    // ],
+     'oauth' => [
+         'only_wechat_browser' => false,
+         'scopes'   => array_map('trim', explode(',', env('WECHAT_OAUTH_SCOPES', 'snsapi_userinfo'))),
+         'callback' => env('WECHAT_OAUTH_CALLBACK', ''),
+     ],
 
     /*
      * 微信支付

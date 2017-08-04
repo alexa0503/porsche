@@ -16,7 +16,7 @@ class CreateWechatUsersTable extends Migration
         Schema::create('wechat_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('openid',100)->unique();
-            $table->string('nickanme',100);
+            $table->string('nickname',100);
             $table->string('sex',20);
             $table->string('avatar',200);
             $table->string('province',200);

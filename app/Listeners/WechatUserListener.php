@@ -46,10 +46,5 @@ class WechatUserListener
                 \App\WechatUser::create($data);
             }
         }
-        $wechat_user = \App\WechatUser::where('openid', $user->id)->first();
-        if( $wechat_user )
-            \Session::put('user_id', $wechat_user->id);
-        else
-            \Session::put('user_id', 1);
     }
 }
