@@ -40,12 +40,13 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
         ];
         return view('topic',[
             'rates'=>$rates,
-            'numbs' => $numbs
+            'numbs' => $numbs,
+            'user'=>session('wechat.oauth_user'),
         ]);
     });
     Route::post('/vote', function(){
         $option_id = (int)Request::input('option_id');
-        if( $option_id < 1 || $option_id > 3){
+        if( $option_id < 1 || $option_id > 4){
             return response(['ret'=>1002,'msg'=>'请选择再投票~']);
         }
         $topic_id = 1;

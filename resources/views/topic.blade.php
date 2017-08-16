@@ -19,6 +19,7 @@
 </head>
 <body>
     <div id="app" class="container">
+        <div class="" style="position:absolute;top:20px;right:20px;"><img class="img-circle" src="{{$user->avatar}}" width="100" height="100" /></div>
         <div class="rows">
             <h3>TB投票</h3>
             <div class="radio">
