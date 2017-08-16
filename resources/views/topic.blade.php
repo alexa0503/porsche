@@ -98,7 +98,7 @@
             $.post(url,{_token:window.Laravel.csrfToken,option_id:option_id},function(data){
                 alert(data.msg);
                 if(data.ret == 0){
-                    window.location.reload();
+                    location.reload();
                 }
             },"JSON").fail(function() {
                 alert( "error" );
