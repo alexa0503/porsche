@@ -19,7 +19,13 @@
 </head>
 <body>
     <div id="app" class="container">
-        <div class="" style="position:absolute;top:20px;right:20px;"><img class="img-circle" src="{{$user->avatar}}" width="100" height="100" /></div>
+        <div class="well" style="margin-top:10px;">
+            <p>dear all… 大家翘首期待的部门team building目前正在前期准备中… 暂定日期为下月22-23两天… 大致行程为22日周五早上出发… 周六23日午餐后回程…此次TB的主旨以休闲娱乐为主… 现初步TB地点如下:</p>
+            <p>1、 建德亲水之旅<br/>包括：船游富春江-水上俱乐部（皮划艇、水上摩托等）-大岩寺及新叶古村游览</p>
+    <p>2、 舟山捕鱼畅享游<br/>包括：南洞艺谷-蓝堡游艇会（游艇漂移+皮划艇）-舟山出海捕鱼</p>
+    <p>3、 宁波九龙湖尊享游<br/>包括：游览郑氏十七房及九龙湖景区-游览杭州湾湿地公园</p>
+
+        </div>
         <div class="rows">
             <h3>TB投票</h3>
             <div class="radio">
