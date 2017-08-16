@@ -85,9 +85,9 @@
     wx.config({!! $js->config(array('onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ', 'onMenuShareWeibo','chooseImage','uploadImage','downloadImage'), false) !!});
     var wxData = {
         title: 'TBTBTBTBTB', //
-        desc: '投票投票投票', //
+        desc: '投票投票投票投票票', //
         link: '{{url("/topic")}}', //
-        imgUrl: '{{$user->avatar}}' // 
+        imgUrl: '{{$user->avatar}}' //
     };
     wxShare(wxData);
     @endif
