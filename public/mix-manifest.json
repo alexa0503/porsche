@@ -1,4 +1,6 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/wx.js": "/js/wx.js",
+    "/js/hammer.min.js": "/js/hammer.min.js",
+    "/js/velocity.min.js": "/js/velocity.min.js",
+    "/js/velocity.ui.min.js": "/js/velocity.ui.min.js"
 }

@@ -11,5 +11,9 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+//mix.js('resources/assets/js/app.js', 'public/js')
+//   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.scripts(['resources/assets/js/wx.js'], 'public/js/wx.js');
+mix.copy('bower_components/hammerjs/hammer.min.js','public/js');
+mix.copy('bower_components/velocity/velocity.min.js','public/js');
+mix.copy('bower_components/velocity/velocity.ui.min.js','public/js');

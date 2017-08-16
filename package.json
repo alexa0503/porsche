@@ -19,7 +19,15 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
+    "ajv": "^5.2.2",
     "less": "^2.7.2",
-    "less-loader": "^4.0.5"
+    "less-loader": "^4.0.5",
+    "velocity": "^0.7.2",
+    "velocity-animate": "^1.5.0",
+    "vue-touch": "next"
+  },
+  "bower": {
+    "fs": false,
+    "tls": false
   }
 }
