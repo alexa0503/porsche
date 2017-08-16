@@ -85,7 +85,7 @@
     var wxData = {
         title: '{{env("WECHAT_SHARE_TITLE")}}', // 分享标题
         desc: '{{env("WECHAT_SHARE_DESC")}}', // 分享描述
-        link: '{{url("/")}}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link: '{{url("/topic")}}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl: '{{asset("share.jpg")}}' // 分享图标
     };
     wxShare(wxData);
