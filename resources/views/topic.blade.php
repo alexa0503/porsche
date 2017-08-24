@@ -26,7 +26,7 @@
     <p>3、 宁波九龙湖尊享游<br/>包括：游览郑氏十七房及九龙湖景区-游览杭州湾湿地公园</p>
     <p style="color:red;">备注:每人限投一票</p>
         </div>
-        <div class="rows">
+        <div class="rows well">
             <h3>TB投票</h3>
             <div class="radio">
                 <label>
@@ -54,7 +54,7 @@
             </div>
             <div><button class="btn btn-primary" id="submit-01">确定投票</button></div>
         </div>
-        <div class="rows">
+        <div class="rows well">
             <h3>投票结果</h3>
             <label>1、建德亲水之旅2日 ({{$numbs[0]}}票)</label>
             <div class="progress">
@@ -90,8 +90,8 @@
     @if(env('APP_ENV') != 'local')
     wx.config({!! $js->config(array('onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ', 'onMenuShareWeibo','chooseImage','uploadImage','downloadImage'), false) !!});
     var wxData = {
-        title: 'TBTBTBTBTB', //
-        desc: '投票投票投票投票票', //
+        title: 'TEAM BUILDING 投票', //
+        desc: 'dear all… 大家翘首期待的部门team building目前正在前期准备中… 暂定日期为下月22-23两天', //
         link: '{{url("/topic")}}', //
         imgUrl: '{{$user->avatar}}' //
     };
@@ -104,7 +104,8 @@
             $.post(url,{_token:window.Laravel.csrfToken,option_id:option_id},function(data){
                 alert(data.msg);
                 if(data.ret == 0){
-                    location.reload();
+                    //location.reload();
+                    location.href="{{url('topic?_='.time())}}"
                 }
             },"JSON").fail(function() {
                 alert( "error" );

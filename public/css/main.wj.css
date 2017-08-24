@@ -40,7 +40,8 @@ left: 0; top:0;width:100%;height:100%;}
 .xxb .female img{max-width: 907px;}
 .xxb .female_btn{ width: 33.21%; height: 7.25%; left: 5.1%; top: 73.92%;}
 .xxb .female_btn img{max-width: 443px;}
-.zpzl{width: 99.48%; height: 100.31%; left: 0.22%; top: -0.31%;}
+/*.zpzl{width: 99.48%; height: 100.31%; left: 0.22%; top: -0.31%;}*/
+.zpzl{width: 100%; height: 100%; left: 0%; top: 0%;}
 .zpzl .title{ width: 23.44%; height: 8.18%; left: 9.72%; top: 8.95%;}
 .zpzl .title img{max-width: 311px;}
 .zpzl .layer_152{ width: 100%; height: 100%; left: 0%; top: 0%;}

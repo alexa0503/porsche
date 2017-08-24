@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Overtrue\LaravelWechat\ServiceProvider::class,
         Collective\Remote\RemoteServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -229,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
         'SSH' => Collective\Remote\RemoteFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
