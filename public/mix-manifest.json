@@ -2,5 +2,6 @@
     "/js/wx.js": "/js/wx.js",
     "/js/hammer.min.js": "/js/hammer.min.js",
     "/js/velocity.min.js": "/js/velocity.min.js",
-    "/js/velocity.ui.min.js": "/js/velocity.ui.min.js"
+    "/js/velocity.ui.min.js": "/js/velocity.ui.min.js",
+    "/js/index.js": "/js/index.js"
 }

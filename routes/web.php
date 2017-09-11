@@ -19,6 +19,14 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
   Route::get('/user', function () {
     return session('wechat.oauth_user')->toArray();
   });
+  Route::get('/result/{sex?}', function($sex = 'male'){
+    return redirect(url('/driver'));
+    return view('result');
+  });
+  Route::get('/driver', function(){
+    //Session::put('filename','599e9c3635663.jpeg');
+    return view('driver');
+  });
   Route::get('/topic', function () {
     $topic_id = 1;
     $count = App\Vote::where('topic_id', $topic_id)->count();
@@ -75,30 +83,35 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
   });
   //图片卡通化
   Route::any('/cartoon', function(Illuminate\Http\Request $request){
-    $scale = $request->scale;
+    $scale = $request->scale ? : 1;
     $x = ceil($request->x);
     $y = ceil($request->y);
-    $w = $request->w;
-    $h = $request->h;
+    $h = ceil($request->h);
+    $w = ceil($request->w);
+    $angle = round($request->angle,4);
     $filename = session('filename');
     $image = Image::make(storage_path('app/public/' . $filename));
-    //先缩放
+    //1.先旋转
+    $image->rotate(-1*$angle-90);
+    //缩放
     if($scale != 1){
       $width = $image->width()*$scale;
       $image->resize($width, null, function ($constraint) {
         $constraint->aspectRatio();
       });
     }
-    //裁切
-    $image->crop($w,$h,$x,$y);
-    //var_dump($image->width(),$image->height(),$x,$y);
-    //转换图片
-    $file_origin = storage_path('app/public/'.$filename);
+    //2.裁切
+    $top = $h/2 - 390/2 + $x;
+    $left = $w - 520 - 89 + $y;
+    $image->crop(520,390,$left,$top);
+    $image->rotate(90);
     $file_cartoon = storage_path('app/public/cartoon/'.$filename);
     $image->save($file_cartoon);
+    //$file_origin = storage_path('app/public/'.$filename);
     $process_command =
     'convert -colorspace Gray '.$file_cartoon.' '.$file_cartoon."\n".
-    base_path().'/cartoon -p 60 -e 4 -n 6 '.$file_cartoon.' '.$file_cartoon;
+    'chmod -R 777 '.$file_cartoon."\n".
+    'cartoon -p 60 -e 4 -n 6 '.$file_cartoon.' '.$file_cartoon;
     $process = new Process($process_command);
     $process->start();
     while ($process->isRunning()) {
@@ -109,11 +122,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
       'ret' => 0,
       'msg' => '',
       'images' => [
-        [
-          'url' => asset('storage/' . $filename),
-          'path' => 'storage/' . $filename,
-          'title' => '原图',
-        ],
+          'url' => asset('storage/cartoon/' . $filename),
+          'path' => 'storage/cartoon/' . $filename,
       ]
     ]);
   });
