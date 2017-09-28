@@ -119,7 +119,7 @@
         <!--face1 END--->
 
         <div class="abs black" ><img class="ptimg" src="images/empty.png" original-data="pec/n5_black.png" /></div>
-        <div class="abs btns_" >
+        <div class="abs btns_"  style="z-index:2000;">
             <div class="abs btns_frm_pct" > </div>
             <div class="abs btn-again css-btn css-btn-alpha" ><img class="ptimg" src="images/empty.png" original-data="pec/n5_btns__btn-again.png" /></div>
             <div class="abs bnt-sure  css-btn css-btn-alpha" ><img class="ptimg" src="images/empty.png" original-data="pec/n5_btns__bnt-sure.png" /></div>
