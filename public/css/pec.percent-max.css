@@ -1,9 +1,19 @@
 /*This is max align*/
-body,html{ margin: 0;padding:0; font-size:10px;width:100%;height:100%; background-color:0;}
+body,html{
+	-webkit-backface-visibility: hidden;
+	margin: 0;padding:0; 
+	font-size:10px;width:100%;height:100%; 
+	background-color:0;
+	overflow:hidden;}
 .abs { position: absolute; }
 .ptimg { width: 100%;  position: absolute;  /* display: block; */  bottom: 0;}
 .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .bg img{max-width: 1334px;}
+
+.clue{display:none;width: 100%; height: 100%; left: 0%; bottom: 0%;z-index:99;}
+.clue .clue-bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;background-color:0;}
+
+.clue .clue-ctt{ width: 14.96%; height: 37.34%; left: 42.52%; bottom: 31.25%;}
 
 
 
@@ -191,7 +201,11 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .n4 .btns .btn-sure img{max-width: 443px;}
 .n4 .btns .btn-upload{ width: 80.69%; height: 39.5%; left: 17.85%; bottom: 60.5%;}
 .n4 .btns .btn-upload img{max-width: 443px;}
-
+.n4 .big-img{
+	/*position:relative;*/
+	width:100%;
+	height:100%;
+}
 
 
 
@@ -220,6 +234,15 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .n5 .btns_ .btn-again{ width: 80.69%; height: 39.5%; left: 17.85%; bottom: 60.5%;}
 .n5 .btns_ .bnt-sure{ width: 80.69%; height: 39.5%; left: 7.1%; bottom: 0%;} 
 
+
+.dom-face-wait{
+	width:100%;
+	height:auto;
+	bottom:0; 
+}
+.dom-face-wait canvas{
+	width:100%;
+}
 .dom-canvas{
 	width:100%;
 	height:auto;
@@ -276,6 +299,7 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .n11 .icons .txt{ width: 58.97%; height: 73.11%; left: 25.53%; bottom: 10.92%;}
 .n11 .icons .txt img{max-width: 194px;}
 .n11 .icons .hand{width: 15.81%; height: 57.14%; left: 5.17%; bottom: 36.97%;}
+.n11 .icons .hand .hand-gif{width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .n11 .icons .hand .hand{ width: 100%; height: 83.82%; left: 0%; bottom: 0%;}
 .n11 .icons .hand .hand img{max-width: 52px;}
 .n11 .icons .hand .circle-inner{ width: 46.15%; height: 30.88%; left: 15.38%; bottom: 61.76%;}
@@ -335,6 +359,24 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .last .note img{max-width: 131px;}
 .last .arrow{ width: 5.1%; height: 3.33%; left: 14.77%; bottom: 4.27%;}
 .last .arrow img{max-width: 68px;}
+.last .test {z-index: 299;pointer-events:none;
+	width: 40%; height: 40%; left: 0%; top: 0%;
+}
+.last .test img{
+	min-width:100%;
+}
+.last .lastDom{
+	width: 64.92%;
+	height: auto;
+	left: 4.87%; bottom: 12.27%;
+}
+.frameimg{width:99%;
+	position:relative;pointer-events:none;
+}
+.last .lastDom .frame{ z-index:88;width:98%; height: 100%; left: 0%; bottom: 0%;}
+.last .lastDom .last-photo{z-index:-1;width: 95.22%; height: auto; left: 2.1%; top: 3.5%;}
+/*div2.css( { width:"64.92%",height:"auto",left:"4.87%",bottom:"12.27%" } );
+*/
 .qrcode{width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .qrcode .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .qrcode .bg img{max-width: 1334px;}
@@ -343,8 +385,17 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .qrcode .layer_1{ width: 35.91%; height: 63.87%; left: 32.08%; bottom: 12.8%;}
 .qrcode .layer_1 img{max-width: 479px;}
 .share{width: 100%; height: 100%; left: 0%; bottom: 0%;}
-.share .black-90{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.share .black-90{ width: 100%; height: 100%; left: 0%; bottom: 0%;background:rgba(0,0,0,0.9);}
 .share .black-90 img{max-width: 1334px;}
+.share .timeline{ width: 100%; height: 100%; left: 0%; top: 0%;}
+.share .timeline img{
+	position:absolute;
+	width:100%;
+	height:auto;
+	display:none;
+	bottom:0;
+}
+
 .share .white-road{ width: 75.11%; height: 100%; left: 24.89%; bottom: 0%;}
 .share .white-road img{max-width: 1002px;}
 .share .red-car{ width: 14.32%; height: 24.67%; left: 80.51%; bottom: 60.8%;}
