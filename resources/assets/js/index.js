@@ -14,10 +14,13 @@ var START_Y = 0;
 var initScale = 1;
 var initAngle = 0;
 var ticking = false;
-var screenScale = screen.height/1334;
+var screenScale = window.innerHeight/1334;
+if(window.innerHeight < window.innerWidth){
+    screenScale = window.innerWidth/1334;
+}
+
 var transform;
 var timer;
-
 var mc = new Hammer.Manager(hitArea);
 
 mc.add(new Hammer.Pan({
@@ -55,7 +58,8 @@ mc.on("hammer.input", function(ev) {
 
 function logEvent(ev) {
   var offset = $('#image').offset();
-  $('#logInfo').html(JSON.stringify(transform)+' type:'+ev.type+' rotation:'+ev.rotation+' offset:'+JSON.stringify(offset));
+  //console.log(ev,offset);
+  //$('#logInfo').html(JSON.stringify(transform)+' type:'+ev.type+' rotation:'+ev.rotation+' offset:'+JSON.stringify(offset)+'screen height:'+screen.height+'window height:'+window.innerHeight);
 }
 
 function resetElement() {
@@ -125,10 +129,19 @@ function onPan(ev) {
     };
   }
   else{
-    transform.translate = {
-      x: START_X + ev.deltaY,
-      y: START_Y - ev.deltaX
-    };
+      if(window.innerHeight < window.innerWidth){
+          transform.translate = {
+            x: START_X + ev.deltaX,
+            y: START_Y + ev.deltaY
+          };
+      }
+      else{
+          transform.translate = {
+            x: START_X + ev.deltaY,
+            y: START_Y - ev.deltaX
+          };
+      }
+
   }
   logEvent(ev);
   requestElementUpdate();
@@ -218,11 +231,12 @@ function upload(serverId)
         alert('图片太小，请重新上传');
         return;
       }
-      $('#image').show();
+
       var img = $('#image');
       img.width(nWidth*screenScale);
       img.height(nHeight*screenScale);
       img.attr('src', json.data.url);
+      $('#image').show();
       //照片位置初始化
       initScale = 1;
       initAngle = 0;
@@ -240,23 +254,23 @@ function upload(serverId)
 }
 function getMinScale(w,h)
 {
-  if ( 600/h > 498/w ){
-    var minScale = 498/w;
+  if ( 520/h > 390/w ){
+    var minScale = 390/w;
   }
   else{
-    var minScale = 600/h;
+    var minScale = 520/h;
   }
   return minScale;
 }
 $().ready(function(){
   var hasCartoon = false;
   $('.btn-photo,.btn-upload').on('touchend', function(){
-      
+//upload('local');return false;
     if( hasCartoon ){
       alert('请等待图片处理');
       return false;
     }
-    if ($(this).hasClass('sczpclick')){
+    if ($(this).hasClass('btn-upload')){
         var sourceType = ['album'];
     }
     else{
@@ -304,20 +318,29 @@ $().ready(function(){
       scale:scale,
       angle:angle,
       screenScale:screenScale,
-      w:screen.width/screenScale,
-      h:screen.height/screenScale,
+      w:window.innerWidth/screenScale,
+      h:window.innerHeight/screenScale,
+      //h:1334,
       _token:window.Laravel.csrfToken
     };
     SiteEvt.dis("exeing");
+    //SiteEvt.dis("imgok",{path:''});
     $('#image').hide();
+    //$('#image').attr('src','');
     $.post('/cartoon', data,function(data){
         if( data.ret == 0){
             ABC.isstatic = false;
             SiteEvt.dis("imgok",{path:data.images.path});
+            $('.n5 .btns_ .btn-again').show();
+            $('.n5 .btns_ .bnt-sure').show();
+            $('.n5').show();
+            $('.n4').hide();
+            $('.game-main-body').show();
             SiteEvt.dis("exeok");
         }
         else{
-            alert('处理失败')
+            alert('处理失败');
+            hasCartoon = false;
         }
       //location.href='/result';
     }).fail(function(){
@@ -325,6 +348,17 @@ $().ready(function(){
       alert('图片处理失败,请重试');
     })
   })
+  $('.n5 .btns_ .btn-again').hide();
+  $('.n5 .btns_ .bnt-sure').hide();
+  $('.n5 .btns_ .btn-again').on('click', function(){
+     $('.n5').hide();
+     $('.n4').show();
+     $('.game-main-body').hide();
+      hasCartoon = false;
+  });
+  $('.n5 .btns_ .bnt-sure').on('click', function(){
+      cn5.load();
+  });
 })
 
 

@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>{{config('APP_NAME')}}</title>
+  <title>{{env('APP_NAME')}}</title>
   <link rel="stylesheet" type="text/css" href="css/pec.percent-max.css?v=1">
   <script>
   window.Laravel = {!! json_encode([
@@ -39,10 +39,9 @@
 		<div class="abs f2"><img class="ptimg" src="images/empty.png" original-data="images/f2.png"/></div>
 		<div class="abs m3"><img class="ptimg" src="images/empty.png" original-data="images/m3.png"/></div>
 		<div class="abs f3"><img class="ptimg" src="images/empty.png" original-data="images/f3.png"/></div>
-	 <!--<div class="abs bg" ><img class="ptimg" src="images/empty.png" original-data="pec/n2_bg.png" /></div>-->
-	  <!--<div class="abs bg" ></div>-->
+        <div class="abs m4"><img class="ptimg" src="images/empty.png" original-data="images/m4.png"/></div>
+		<div class="abs f4"><img class="ptimg" src="images/empty.png" original-data="images/f4.png"/></div>
 	  <div class="dom-holder"></div>
-	  <!--<div class="abs gif" ><img class="ptimg" src="images/empty.png" original-data="video/video0txt.gif" /></div>-->
 
 	<div class="abs png_top" ></div>
 	  <div class="abs btn-start css-btn css-btn-alpha" ><img class="ptimg" src="images/empty.png" original-data="pec/n2_btn-start.png" /></div>
@@ -67,10 +66,12 @@
 	</div>
 	<div class="abs n4" id="hitarea">
         <div class="abs" style="width:100%;height:100%;">
-            <img id="image" src="images/empty.png" original-data="images/empty.png" style="pointer-events:none;" /></div>
+            <img id="image" src="images/empty.png" original-data="images/empty.png"  style="pointer-events:none;" />
+        </div>
+        <div class="abs" id="logInfo" style="color:#fff;"></div>
 	  <div class="abs txt-top" ><img class="ptimg" src="images/empty.png" original-data="images/empty.png" /></div>
 	  <div class="abs n4n1" >
-		<div class="abs face" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_n1_face.png" /></div>
+		<div class="abs face" ><img id="image" class="ptimg" src="images/empty.png" original-data="pec/n4_n1_face.png" /></div>
 		<div class="abs light" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_n1_light.png" /></div>
 		<div class="abs dots" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_n1_dots.png" /></div>
 	  </div>
@@ -105,7 +106,7 @@
 		<!--face1 END--->
 
 	  <div class="abs black" ><img class="ptimg" src="images/empty.png" original-data="pec/n5_black.png" /></div>
-	  <div class="abs btns_" >
+	  <div class="abs btns_" style="z-index:2000;">
 		<div class="abs btns_frm_pct" > </div>
 		<div class="abs btn-again css-btn css-btn-alpha" ><img class="ptimg" src="images/empty.png" original-data="pec/n5_btns__btn-again.png" /></div>
 		<div class="abs bnt-sure  css-btn css-btn-alpha" ><img class="ptimg" src="images/empty.png" original-data="pec/n5_btns__bnt-sure.png" /></div>
@@ -117,7 +118,7 @@
 <div class="abs game-main-body">
 	<div class="abs movie-bg" ><img class="ptimg" src="images/empty.png" original-data="images/bg.png" /></div>
 	<div class="abs n6 movie" >
-	  <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/n6-movie_bg.png" />--></div>
+	  <div class="abs bg" ></div>
 	  <div class="abs title" ><img class="ptimg" src="images/empty.png" original-data="pec/n6-movie_title.png" /></div>
 		<div class="abs timeline"></div>
     </div>
@@ -211,12 +212,11 @@
 	  <div class="abs title" ><img class="ptimg" src="images/empty.png" original-data="pec/share-out_title.png" /></div>
 	  <div class="abs btn-start" ><img class="ptimg" src="images/empty.png" original-data="pec/share-out_btn-start.png" /></div>
 	</div>
-	<div class="abs music" >
+	<!--<div class="abs music" >
 	  <div class="abs music-on_" ><img class="ptimg" src="images/empty.png" original-data="pec/music_music-on_.png" /></div>
 	  <div class="abs music-off" ><img class="ptimg" src="images/empty.png" original-data="pec/music_music-off.png" /></div>
-	</div>
-	<div class="abs top" ><img class="ptimg" src="images/empty.png" original-data="pec/top.png" /></div>
-	<div class="abs photo-man" ><img class="ptimg" src="images/empty.png" original-data="pec/photo-man.png" /></div>
+  </div><div class="abs top" ><img class="ptimg" src="images/empty.png" original-data="pec/top.png" /></div>
+	<div class="abs photo-man" ><img class="ptimg" src="images/empty.png" original-data="pec/photo-man.png" /></div>-->
 	</div>
 <div class="abs buffer" >
 	<div class="abs buffer1" ><img class="ptimg" src="images/empty.png" data-original="images/empty.png" /></div>
@@ -235,15 +235,14 @@
 <!--<video id="video123" class="video" poster="video/video0loop.jpg" type="video/mp4" playsinline="" x-webkit-airplay="allow" webkit-playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="false" src="video/video0loop.mp4" preload="true" style="width: 766.8px; height: 432px;" loop=""></video>
     <button id="endBtn">再次播放</button>
 </div>-->
-<script src="js/route.js?id=12155"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/route.js?id=121551"></script>
 <script src="js/preload.js?id=1522"></script>
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="{{asset('js/wx.js')}}"></script>
 <script src="{{asset('js/hammer.min.js')}}"></script>
-<script src="{{asset('js/hammer-time.min.js')}}"></script>
 <script>
 window.onjqok = function(){ }
 /*
@@ -276,6 +275,5 @@ video =  document.getElementById("video");
     @endif
 </script>
 
-<script src="{{asset('js/index.js')}}"></script>
 </body>
 </html>

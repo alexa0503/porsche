@@ -20,8 +20,10 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
     return session('wechat.oauth_user')->toArray();
   });
   Route::get('/result/{sex?}', function($sex = 'male'){
-    return redirect(url('/driver'));
-    return view('result');
+      return redirect(asset('storage/cartoon/' . session('filename')));
+      //return session('filename');
+    //return redirect(url('/driver'));
+    //return view('result');
   });
   Route::get('/driver', function(){
     //Session::put('filename','599e9c3635663.jpeg');
@@ -91,8 +93,12 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
     $angle = round($request->angle,4);
     $filename = session('filename');
     $image = Image::make(storage_path('app/public/' . $filename));
-    //1.先旋转
-    $image->rotate(-1*$angle-90);
+
+    if($h > $w){
+        //1.先旋转
+        $image->rotate(-1*$angle-90);
+    }
+
     //缩放
     if($scale != 1){
       $width = $image->width()*$scale;
@@ -101,10 +107,24 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
       });
     }
     //2.裁切
-    $top = $h/2 - 390/2 + $x;
-    $left = $w - 520 - 89 + $y;
-    $image->crop(520,390,$left,$top);
-    $image->rotate(90);
+    if($h > $w){
+        $top = $h/2 - 390/2 + $x;
+        $left = 32 + $y;
+    }
+    else{
+        $top = $h - 520 - 32 + $x;
+        $left = $w/2 - 390/2 + $y;
+    }
+
+
+    if($h > $w){
+        $image->crop(520,390,$left,$top);
+        $image->rotate(90);
+    }
+    else{
+        $image->crop(390,520,$left,$top);
+    }
+
     $file_cartoon = storage_path('app/public/cartoon/'.$filename);
     $image->save($file_cartoon);
     //$file_origin = storage_path('app/public/'.$filename);
