@@ -5,7 +5,7 @@ ABC.start = "n2";
 //ABC.start = "n6";
 ABC.ispart1=false;
 ABC.ispart2=false;
-ABC.isstatic=true;
+ABC.isstatic=false;
 ABC.gender=2;
 
 ABC.playAsVideo=3;
@@ -72,7 +72,7 @@ ABC.jsArr.push("js/pos.js");
 ABC.jsArr.push("js/num.js");
 //ABC.jsArr.push("js/jquery.js");
 ABC.jsArr.push("js/main.js");
-ABC.jsArr.push("js/index.js");    
+ABC.jsArr.push("js/index.js");
 
 
 ABC.isEnterHome=false;
@@ -94,9 +94,9 @@ ABC.btn.push(['n2','.btn-start','window.preload.playMp3btn(Muz.btn_,true);window
 ABC.btn.push(['n3','.btn-1','Cn3.me.sel1();']);//选择1
 ABC.btn.push(['n3','.btn-2','Cn3.me.sel2();']);//选择2
 ABC.btn.push(['n3','.btn-sure','if(Cn3.me.sel){$(".n3 .btn-sure").removeClass("css-btn-alpha");HKit.delay(0.6,function(){$(".n3").fadeOut();h5jump.doNext();});}']);//跳过按钮
-ABC.btn.push(['n4','.n4 .btns .btn-upload','SiteEvt.dis("imgok",{path:"images/m1.jpg"});']);//拍照界面
-ABC.btn.push(['n4','.n4 .btns .btn-sure','SiteEvt.dis("imgok",{path:"images/m1.jpg"});']);//拍照界面
-ABC.btn.push(['n4','.n4 .btn-photo','SiteEvt.dis("imgok",{path:"images/m1.jpg"});']);//拍照界面 h5jump.doNext(1);
+//ABC.btn.push(['n4','.n4 .btns .btn-upload','SiteEvt.dis("imgok",{path:"images/m1.jpg"});']);//拍照界面
+//ABC.btn.push(['n4','.n4 .btns .btn-sure','SiteEvt.dis("imgok",{path:"images/m1.jpg"});']);//拍照界面
+//ABC.btn.push(['n4','.n4 .btn-photo','SiteEvt.dis("imgok",{path:"images/m1.jpg"});']);//拍照界面 h5jump.doNext(1);
 ABC.btn.push(['n5','.n5 .btns_ .btn-again','h5jump.back(1);']);//预览界面--重新拍摄
 ABC.btn.push(['n5','.n5 .btns_ .bnt-sure','cn5.load();']);//预览界面--确定
 ABC.btn.push(['share','.share','window.h5jump.doRouteBack(1);console.log("share");']);//预览界面--确定
