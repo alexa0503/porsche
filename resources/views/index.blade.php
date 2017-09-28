@@ -170,20 +170,7 @@
         </div>
         <div class="abs hotarea" ><img class="ptimg" src="images/empty.png" original-data="pec/n11_hotarea.png" /></div>
     </div>
-    <div class="abs n12" >
-        <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/n12-movie_bg.png" />--></div>
-        <div class="abs title" ><img class="ptimg" src="images/empty.png" original-data="pec/n12-movie_title.png" /></div>
-    </div>
-    <div class="abs n13" >
-        <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/n13-movie_bg.png" />--></div>
-        <div class="abs black30" ><img class="ptimg" src="images/empty.png" original-data="pec/n13-movie_black30.png" /></div>
-        <div class="abs scan-cartoon_mid" >
-            <div class="abs road-white" ><img class="ptimg" src="images/empty.png" original-data="pec/n13-movie_scan-cartoon_mid_road-white.png" /></div>
-            <div class="abs red-car" ><img class="ptimg" src="images/empty.png" original-data="pec/n13-movie_scan-cartoon_mid_red-car.png" /></div>
-            <div class="abs title1" ><img class="ptimg" src="images/empty.png" original-data="pec/n13-movie_scan-cartoon_mid_title1.png" /></div>
-            <div class="abs title2" ><img class="ptimg" src="images/empty.png" original-data="pec/n13-movie_scan-cartoon_mid_title2.png" /></div>
-        </div>
-    </div>
+    
     <div class="abs movie" >
         <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/movie_bg.png" />--></div>
         <div class="abs black-mask" ><img class="ptimg" src="images/empty.png" original-data="pec/movie_black-mask.png" /></div>

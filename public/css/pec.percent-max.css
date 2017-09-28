@@ -85,7 +85,9 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .game-main-end
 {width:100%;height:100%;}		
 .css-btn{cursor:pointer;}
-
+.game-main-end >div{
+	display:none;
+}
 .loading_mid .css-num{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .loading_mid{width: 37.41%; height:auto; left: 31.26%; top: 42%; transform: translateY(-50%); }
 .loading_mid .loading_frm_pct{ width: 100%; height: auto; left: 0; top: 0; position: relative; padding-bottom: 53.31%;}
