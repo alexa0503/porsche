@@ -7,6 +7,14 @@
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
     ]) !!};
+    @if(env('APP_ENV') != 'local')
+    var wxData = {
+        title: '{{env("WECHAT_SHARE_TITLE")}}', // 分享标题
+        desc: '{{env("WECHAT_SHARE_DESC")}}', // 分享描述
+        link: '{{url("/")}}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: '{{asset("images/share.jpg")}}' // 分享图标
+    };
+    @endif
     </script>
     @php
     $js = \EasyWeChat::js();
@@ -170,7 +178,7 @@
         </div>
         <div class="abs hotarea" ><img class="ptimg" src="images/empty.png" original-data="pec/n11_hotarea.png" /></div>
     </div>
-    
+
     <div class="abs movie" >
         <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/movie_bg.png" />--></div>
         <div class="abs black-mask" ><img class="ptimg" src="images/empty.png" original-data="pec/movie_black-mask.png" /></div>
@@ -303,12 +311,6 @@ video.play()
 }*/
 @if(env('APP_ENV') != 'local')
 wx.config({!! $js->config(array('onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ', 'onMenuShareWeibo','chooseImage','uploadImage','downloadImage'), false) !!});
-var wxData = {
-    title: '{{env("WECHAT_SHARE_TITLE")}}', // 分享标题
-    desc: '{{env("WECHAT_SHARE_DESC")}}', // 分享描述
-    link: '{{url("/")}}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-    imgUrl: '{{asset("share.jpg")}}' // 分享图标
-};
 wxShare(wxData);
 @endif
 </script>

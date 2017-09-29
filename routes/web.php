@@ -19,69 +19,16 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
   Route::get('/user', function () {
     return session('wechat.oauth_user')->toArray();
   });
-  Route::get('/result/{sex?}', function($sex = 'male'){
-      return redirect(asset('storage/cartoon/' . session('filename')));
-      //return session('filename');
-    //return redirect(url('/driver'));
-    //return view('result');
-  });
+  Route::get('/result/{id?}', function($id){
+    $image = App\Image::find($id);
+    if( $image == null ){
+        return redirect(url('/'));
+    }
+    return view('result',['image'=>$image]);
+})->name('result');
   Route::get('/driver', function(){
     //Session::put('filename','599e9c3635663.jpeg');
     return view('driver');
-  });
-  Route::get('/topic', function () {
-    $topic_id = 1;
-    $count = App\Vote::where('topic_id', $topic_id)->count();
-    $count1 = App\Vote::where('topic_id', $topic_id)->where('option_id', 1)->count();
-    $count2 = App\Vote::where('topic_id', $topic_id)->where('option_id', 2)->count();
-    $count3 = App\Vote::where('topic_id', $topic_id)->where('option_id', 3)->count();
-    $count4 = App\Vote::where('topic_id', $topic_id)->where('option_id', 4)->count();
-    $count = $count == 0 ? 1 : $count;
-    $rates = [
-      ($count1/$count)*100,
-      ($count2/$count)*100,
-      ($count3/$count)*100,
-      ($count4/$count)*100,
-    ];
-    $numbs = [
-      $count1,
-      $count2,
-      $count3,
-      $count4,
-    ];
-    return view('topic', [
-      'rates'=>$rates,
-      'numbs' => $numbs,
-      'user'=>session('wechat.oauth_user'),
-    ]);
-  });
-  Route::post('/vote', function () {
-    $option_id = (int)Request::input('option_id');
-    if ($option_id < 1 || $option_id > 4) {
-      return response(['ret'=>1002,'msg'=>'请选择再投票~']);
-    }
-    $topic_id = 1;
-    $oauth_user = session('wechat.oauth_user');
-    $user = App\WechatUser::where('openid', $oauth_user->id)->first();
-
-    DB::beginTransaction();
-    try {
-      $count = App\Vote::where('topic_id', $topic_id)->where('user_id', $user->id)->lockforupdate()->count();
-      if ($count > 0) {
-        return response(['ret'=>1001,'msg'=>'每个人只有一次投票机会哦~']);
-      } else {
-        $vote = new App\Vote;
-        $vote->topic_id = $topic_id;
-        $vote->user_id = $user->id;
-        $vote->option_id = $option_id;
-        $vote->save();
-        DB::commit();
-        return response(['ret'=>0,'msg'=>'恭喜你，投票成功~']);
-      }
-    } catch (Exception $e) {
-      return response(['ret'=>1003,'msg'=>'抱歉，服务器发生错误~'.$e->getMessage()]);
-      DB::rollback();
-    }
   });
   //图片卡通化
   Route::any('/cartoon', function(Illuminate\Http\Request $request){
@@ -128,19 +75,31 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
     $file_cartoon = storage_path('app/public/cartoon/'.$filename);
     $image->save($file_cartoon);
     //$file_origin = storage_path('app/public/'.$filename);
+    //convert -modulate 100%,80% input.jpg output.jpg
     $process_command =
     'convert -colorspace Gray '.$file_cartoon.' '.$file_cartoon."\n".
     'chmod -R 777 '.$file_cartoon."\n".
+    'convert -modulate 150% '.$file_cartoon.' '.$file_cartoon."\n".
     'cartoon -p 60 -e 4 -n 6 '.$file_cartoon.' '.$file_cartoon;
     $process = new Process($process_command);
     $process->start();
     while ($process->isRunning()) {
         // waiting for process to finish
     }
+    $oauth_user = session('wechat.oauth_user');
+    $wechat_user = App\WechatUser::where('openid', $oauth_user->id)->first();
+
+    $user_id = null == $wechat_user ? 1 : $wechat_user->id;
+    $image = new App\Image;
+    $image->user_id = $user_id;
+    $image->path = $filename;
+    $image->gender = session('gender');
+    $image->save();
     //$process->wait();
     return response([
       'ret' => 0,
       'msg' => '',
+      'shareUrl' => route('result',$image->id),
       'images' => [
           'url' => asset('storage/cartoon/' . $filename),
           'path' => 'storage/cartoon/' . $filename,
@@ -162,7 +121,9 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
     else{
       $filename = 'IMG_0612.JPG';
     }
+    $gender = $request->get('gender') ? : 1;
     Session::put('filename',$filename);
+    Session::put('gender',$gender);
     $image = Image::make(storage_path('app/public/' . $filename));
     return response([
       'ret' => 0,

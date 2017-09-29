@@ -217,7 +217,7 @@ function onDoubleTap(ev) {
 
 function upload(serverId)
 {
-  var url = '/wx/'+serverId;
+  var url = '/wx/'+serverId + '?gender='+ABC.gender;
   $.ajax({
     url: url,
     dataType:'json',
@@ -337,6 +337,10 @@ $().ready(function(){
             $('.n4').hide();
             $('.game-main-body').show();
             SiteEvt.dis("exeok");
+            if(wx && wxData){
+                wxData.link = data.shareUrl;
+                wxShare(wxData);
+            }
         }
         else{
             alert('处理失败');

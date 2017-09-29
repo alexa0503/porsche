@@ -88,6 +88,19 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .game-main-end >div{
 	display:none;
 }
+.game-main-stt >div{
+	display:none;
+}
+.game-main-body >div{
+	display:none;
+}
+.game-main-end .lastphoto,
+.game-main-end .female,
+.game-main-end .male,
+.game-main-end .lastDom
+{
+	visibility:hidden;
+}
 .loading_mid .css-num{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .loading_mid{width: 37.41%; height:auto; left: 31.26%; top: 42%; transform: translateY(-50%); }
 .loading_mid .loading_frm_pct{ width: 100%; height: auto; left: 0; top: 0; position: relative; padding-bottom: 53.31%;}
@@ -411,7 +424,7 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .share-out .photo img{max-width: 909px;}
 .share-out .title{ width: 20.46%; height: 2.53%; left: 71.74%; bottom: 78.67%;}
 .share-out .title img{max-width: 273px;}
-.share-out .btn-start{ width: 31.63%; height: 6.27%; left: 68.37%; bottom: 9.2%;}
+.share-out .btn-start{ cursor:pointer;width: 31.63%; height: 6.27%; left: 68.37%; bottom: 9.2%;}
 .share-out .btn-start img{max-width: 422px;}
 .music{width: 9%; height: 16%; left: 90.48%; bottom: 69.47%;}
 .music .music-on_{ width: 18.33%; height: 17.5%; left: 43.33%; bottom: 62.5%;}
