@@ -1,3 +1,7 @@
+
+ABC.mOffset=[8,0];
+ABC.fOffset=[6,6];
+
 var data0=[];
 data0["1f"]=[];
 data0["1m"]=[];

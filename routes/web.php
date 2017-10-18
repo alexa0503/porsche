@@ -79,7 +79,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
     $process_command =
     'convert -colorspace Gray '.$file_cartoon.' '.$file_cartoon."\n".
     'chmod -R 777 '.$file_cartoon."\n".
-    'convert -modulate 150% '.$file_cartoon.' '.$file_cartoon."\n".
+    'convert -modulate 200% '.$file_cartoon.' '.$file_cartoon."\n".
     'cartoon -p 60 -e 4 -n 6 '.$file_cartoon.' '.$file_cartoon;
     $process = new Process($process_command);
     $process->start();

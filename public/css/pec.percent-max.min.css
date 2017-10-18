@@ -7,7 +7,7 @@ body,html{-webkit-backface-visibility:hidden;margin:0;padding:0;font-size:10px;w
 .clue .clue-bg{width:100%;height:100%;left:0%;bottom:0%;background-color:0;}
 .clue .clue-ctt{width:14.96%;height:37.34%;left:42.52%;bottom:31.25%;}
 .dom-video{position:absolute;width:100%;height:100%;}
-.dom-holder{z-index:-1;width:100%;height:auto;}
+.dom-holder{z-index:-1;width:100%;height:100%;position:absolute;}
 .dom-holder img{position:absolute;width:100%;height:auto;display:none;bottom:0;}
 .n6 .timeline{width:100%;height:100%;left:0%;top:0%;}
 .n6 .timeline img{position:absolute;width:100%;height:auto;display:none;bottom:0;}
@@ -23,12 +23,18 @@ body,html{-webkit-backface-visibility:hidden;margin:0;padding:0;font-size:10px;w
 .num_n9{background:url("../images/num.png") 14.5% 100% no-repeat;}
 .debug{z-index:10000;position:absolute;word-break:break-all;background:rgba(255,255,255,0.25);top:0;left:0;position:fixed;color:#fff;font-size:20px;width:50%;height:30%;}
 .game-main-stt,.game-main-body,.game-main-end{width:100%;height:100%;}
-.css-btn{cursor:pointer;}
+.css-btn{cursor:pointer;-webkit-tap-highlight-color:rgba(255,0,0,0);}
+.face1f{visibility:hidden;}
+.face1m{visibility:hidden;}
+.game-main-end>div{display:none;}
+.game-main-stt>div{display:none;}
+.game-main-body>div{display:none;}
+.game-main-end .lastphoto,.game-main-end .female,.game-main-end .male,.game-main-end .lastDom{visibility:hidden;}
 .loading_mid .css-num{width:100%;height:100%;left:0%;bottom:0%;}
-.loading_mid{width:37.41%;height:auto;left:31.26%;top:42%;transform:translateY(-50%);}
+.loading_mid{width:37.41%;height:auto;left:31.26%;top:48%;transform:translateY(-50%);}
 .loading_mid .loading_frm_pct{width:100%;height:auto;left:0;top:0;position:relative;padding-bottom:53.31%;}
 .loading_mid .assets{display:none;}
-.loading_mid .npp{width:24.05%;height:47.74%;left:71.94%;bottom:43.98%;}
+.loading_mid .npp{display:none;width:24.05%;height:47.74%;left:71.94%;bottom:43.98%;}
 .loading_mid .npp img{max-width:120px;}
 .loading_mid .npos1 .inner{width:100%;height:100%;background-size:803%;opacity:0.4;}
 .loading_mid .npos2 .inner{width:100%;height:100%;background-size:803%;opacity:0.4;}
@@ -38,7 +44,7 @@ body,html{-webkit-backface-visibility:hidden;margin:0;padding:0;font-size:10px;w
 .loading_mid .npos1 img{max-width:148px;}
 .loading_mid .npos2{width:29.66%;height:79.7%;left:39.68%;bottom:10.53%;}
 .loading_mid .npos2 img{max-width:148px;}
-.loading_mid .txt{width:47.49%;height:36.47%;left:23.65%;bottom:28.2%;}
+.loading_mid .txt{display:none;width:47.49%;height:36.47%;left:23.65%;bottom:28.2%;}
 .loading_mid .txt img{max-width:237px;}
 .loading_mid .redbar{width:53.31%;height:1.88%;left:23.65%;bottom:54.14%;}
 .loading_mid .redbar .inner{width:0%;height:100%;}
@@ -50,7 +56,8 @@ body,html{-webkit-backface-visibility:hidden;margin:0;padding:0;font-size:10px;w
 .n2 .bg img{}
 .n2 .btn-start{width:33.21%;height:6.27%;left:33.66%;bottom:4.53%;}
 .n2 .btn-start img{max-width:443px;}
-.n2 .png_top{width:51.8%;height:34.53%;left:27.36%;top:17.47%;}
+.n2 .png_top{width:100%;height:100%;left:0%;top:0%;position:absolute;}
+.n2 .png_top img{bottom:0px;}
 .btm-red-bar{width:0%;height:100%;position:absolute;background-color:#f00;}
 .btm-red-bar-out{width:100%;height:4px;left:0;bottom:0;position:fixed;}
 .n3 .btn-2 .txt{pointer-events:none;}
@@ -173,7 +180,7 @@ body,html{-webkit-backface-visibility:hidden;margin:0;padding:0;font-size:10px;w
 .n11{width:100%;height:89.07%;left:0%;bottom:0%;}
 .n11 .bg{width:100%;height:100%;left:0%;bottom:0%;}
 .n11 .bg img{max-width:1334px;}
-.n11 .arrow{width:10.94%;height:4.94%;left:4.87%;bottom:6.59%;}
+.n11 .arrow{visibility:hidden;width:10.94%;height:4.94%;left:4.87%;bottom:6.59%;}
 .n11 .arrow img{max-width:146px;}
 .n11 .icons{width:24.66%;height:auto;left:70.39%;bottom:4.94%;}
 .n11 .icons .icons_frm_pct{width:100%;height:auto;left:0;top:0;position:relative;padding-bottom:36.17%;}
@@ -270,7 +277,7 @@ body,html{-webkit-backface-visibility:hidden;margin:0;padding:0;font-size:10px;w
 .share-out .photo img{max-width:909px;}
 .share-out .title{width:20.46%;height:2.53%;left:71.74%;bottom:78.67%;}
 .share-out .title img{max-width:273px;}
-.share-out .btn-start{width:31.63%;height:6.27%;left:68.37%;bottom:9.2%;}
+.share-out .btn-start{cursor:pointer;width:31.63%;height:6.27%;left:68.37%;bottom:9.2%;}
 .share-out .btn-start img{max-width:422px;}
 .music{width:9%;height:16%;left:90.48%;bottom:69.47%;}
 .music .music-on_{width:18.33%;height:17.5%;left:43.33%;bottom:62.5%;}
@@ -281,4 +288,9 @@ body,html{-webkit-backface-visibility:hidden;margin:0;padding:0;font-size:10px;w
 .top img{max-width:1334px;}
 .photo-man{width:100%;height:100%;left:0%;bottom:0%;}
 .photo-man img{max-width:1334px;}
-
+.music_icon{width:9.6%;height:20.71%;right:0%;top:0%;display:none;position:fixed;}
+.wap-btn{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+.music_icon .music_off{width:100%;height:100%;right:0%;top:0%;display:none;}
+.music_icon .music_off img{max-width:128px;}
+.music_icon .music_on{width:100%;height:100%;right:0%;top:0%;}
+.music_icon .music_on img{max-width:128px;}

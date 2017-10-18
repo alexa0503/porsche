@@ -270,12 +270,15 @@ $().ready(function(){
       alert('请等待图片处理');
       return false;
     }
+    /*
     if ($(this).hasClass('btn-upload')){
         var sourceType = ['album'];
     }
     else{
         var sourceType = ['camera'];
     }
+    */
+    var sourceType = ['album','camera'];
     wx.chooseImage({
         count: 1, // 默认9
         sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有

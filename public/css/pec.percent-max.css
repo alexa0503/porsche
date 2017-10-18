@@ -24,8 +24,11 @@ body,html{
 }
 .dom-holder{
 	z-index:-1;
-	width:100%;
-	height:auto;
+	width: 100%; 
+	/*margin-left:-5%;*/
+	height:100%;  
+	position:absolute;
+	/*height:auto;*/
 }
 .dom-holder img{
 	position:absolute;
@@ -34,7 +37,13 @@ body,html{
 	display:none;
 	bottom:0;
 }
-.n6 .timeline{ width: 100%; height: 100%; left: 0%; top: 0%;}
+.n6 .timeline{ 
+	width: 100%; 
+	/*margin-left:-5%;*/
+	height: 100%; 
+	left: 0%; 
+	top: 0%;
+}
 .n6 .timeline img{
 	position:absolute;
 	width:100%;
@@ -84,7 +93,17 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .game-main-body,
 .game-main-end
 {width:100%;height:100%;}		
-.css-btn{cursor:pointer;}
+.css-btn{cursor:pointer;
+-webkit-tap-highlight-color: rgba(255,0,0,0);
+/*-webkit-tap-highlight-color: rgba(255,0,0,1);
+background: rgba(255,0,0,1);*/
+}
+.face1f{
+	visibility:hidden;
+}
+.face1m{
+	visibility:hidden;
+}
 .game-main-end >div{
 	display:none;
 }
@@ -101,11 +120,14 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 {
 	visibility:hidden;
 }
-.loading_mid .css-num{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
-.loading_mid{width: 37.41%; height:auto; left: 31.26%; top: 42%; transform: translateY(-50%); }
+.loading_mid .css-num{ width: 100%; height: 100%;left: 0%; bottom: 0%;}
+.loading_mid{width: 37.41%; height:auto; 
+left: 31.26%; top: 48%;/* top: 42%; */
+transform: translateY(-50%); 
+}
 .loading_mid .loading_frm_pct{ width: 100%; height: auto; left: 0; top: 0; position: relative; padding-bottom: 53.31%;}
 .loading_mid .assets{display:none;}
-.loading_mid .npp{ width: 24.05%; height: 47.74%; left: 71.94%; bottom: 43.98%;}
+.loading_mid .npp{display:none; width: 24.05%; height: 47.74%; left: 71.94%; bottom: 43.98%;}
 .loading_mid .npp img{max-width: 120px;}
 /*.loading_mid .npos2{ width: 28.86%; height: 81.58%; left: 39.88%; bottom: 5.64%;}
 .loading_mid .npos2 img{max-width: 144px;}
@@ -122,7 +144,7 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .loading_mid .npos2{ width: 29.66%; height: 79.7%; left: 39.68%; bottom: 10.53%;}
 .loading_mid .npos2 img{max-width: 148px;}
 
-.loading_mid .txt{ width: 47.49%; height: 36.47%; left: 23.65%; bottom: 28.2%;}
+.loading_mid .txt{display:none; width: 47.49%; height: 36.47%; left: 23.65%; bottom: 28.2%;}
 .loading_mid .txt img{max-width: 237px;}
 .loading_mid .redbar{ width: 53.31%; height: 1.88%; left: 23.65%; bottom: 54.14%;}
 .loading_mid .redbar .inner{ width:0%; height: 100%;}
@@ -134,8 +156,10 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .n2 .bg img{/*max-width: 1334px;*/}
 .n2 .btn-start{ width: 33.21%; height: 6.27%; left: 33.66%; bottom: 4.53%;}
 .n2 .btn-start img{max-width: 443px;}
-.n2 .png_top{ width: 51.8%; height: 34.53%; left: 27.36%; top: 17.47%;}
-
+/*.n2 .png_top{ width: 51.8%; height: 34.53%; left: 27.36%; top:25%; transform: translateY(-50%); position:fixed; }*/
+.n2 .png_top{ width: 100%;  height: 100%; left: 0%; top:0%;  position:absolute; }
+/*.n2 .png_top img{bottom:none;top:0px;}*/
+.n2 .png_top img{bottom:0px;}
 
 .btm-red-bar{width:0%;height:100%;position:absolute;background-color:#f00;}
 .btm-red-bar-out{width:100%;height:4px;left:0;bottom:0;position:fixed;}
@@ -307,7 +331,7 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .n11{width: 100%; height: 89.07%; left: 0%; bottom: 0%;}
 .n11 .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .n11 .bg img{max-width: 1334px;}
-.n11 .arrow{ width: 10.94%; height: 4.94%; left: 4.87%; bottom: 6.59%;}
+.n11 .arrow{visibility:hidden; width: 10.94%; height: 4.94%; left: 4.87%; bottom: 6.59%;}
 .n11 .arrow img{max-width: 146px;}
 .n11 .icons{width: 24.66%; height:auto; left: 70.39%; bottom: 4.94%;}
 .n11 .icons .icons_frm_pct{ width: 100%; height: auto; left: 0; top: 0; position: relative; padding-bottom: 36.17%;}
@@ -435,3 +459,15 @@ background: url("../images/num.png") 14.5% 100% no-repeat;
 .top img{max-width: 1334px;}
 .photo-man{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .photo-man img{max-width: 1334px;}
+
+.music_icon{width: 9.6%; height: 20.71%; 
+right: 0%; top: 0%;
+display:none;
+position:fixed;
+}
+.wap-btn{-webkit-tap-highlight-color: rgba(255,0,0,0);}
+.music_icon .music_off{ 
+width: 100%; height: 100%; right: 0%; top: 0%;display:none;}
+.music_icon .music_off img{max-width: 128px;}
+.music_icon .music_on{ width: 100%; height: 100%; right: 0%; top: 0%;}
+.music_icon .music_on img{max-width: 128px;}

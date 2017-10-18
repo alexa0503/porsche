@@ -27,17 +27,17 @@
     </div>
     <div id="pageWrap">
         <div class="abs loading_mid" id="loading_mid">
-            <div class="abs loading_frm_pct" > </div>
-            <div class="abs assets" ><img class="ptimg" src="images/empty.png"  original-data="images/num.png" /></div>
-            <div class="abs css-num">
-                <div class="abs npp" ><img class="ptimg" src="images/empty.png" original-data="pec/loading_mid_npp.png" /></div>
-                <div class="abs npos2 " ><div class="abs inner num_n0"></div>
-            </div>
-            <div class="abs npos1 " ><div class="abs inner num_n0"></div>
-        </div>
-    </div>
-    <div class="abs txt" ><img class="ptimg" src="images/empty.png" original-data="pec/loading_mid_txt.png" /></div>
-    <div class="abs redbar" ><div class="abs inner"><img class="ptimg" src="images/empty.png" original-data="pec/loading_mid_redbar.png" /></div></div>
+  <div class="abs loading_frm_pct" > </div>
+  <div class="abs assets" ><img class="ptimg" src="images/num.png" /></div>
+  <div class="abs css-num">
+		<div class="abs npp" ><img class="ptimg" src="pec/loading_mid_npp.png" /></div>
+		<div class="abs npos2 " ><div class="abs inner num_n0"></div>
+		</div>
+		<div class="abs npos1 " ><div class="abs inner num_n0"></div>
+		</div>
+  </div>
+  <div class="abs txt" ><img class="ptimg" src="pec/loading_mid_txt.png" /></div>
+  <div class="abs redbar" ><div class="abs inner"><img src="pec/loading_mid_redbar.png" /></div></div>
 
 </div>
 
@@ -101,7 +101,7 @@
             <div class="abs dots" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_n2_dots.png" /></div>
         </div>
         <div class="abs txt-bottom" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_txt-bottom.png" /></div>
-        <div class="abs btn-photo css-btn" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_btn-photo.png" /></div>
+        <!--<div class="abs btn-photo css-btn" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_btn-photo.png" /></div>-->
         <div class="abs title" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_title.png" /></div>
         <div class="abs btns" >
             <div class="abs btns_frm_pct" > </div>
@@ -267,6 +267,10 @@
     <div class="abs buffer2" ><img class="ptimg" src="images/empty.png"  /></div>
 </div>
 <div class="btm-red-bar-out"><div class="btm-red-bar"></div></div>
+<div class="abs music_icon" id="music_icon">
+  <div class="abs music_off" onclick="Preload.me.click_music_off();"><img class="ptimg" src="/images/music_icon/music_icon_music_off.png" /></div>
+  <div class="abs music_on" onclick="Preload.me.click_music_on();"><img class="ptimg" src="/images/music_icon/music_icon_music_on.png" /></div>
+</div>
 </div>
 
 <!--<div class="abs dom-video" id="dom-video">-->
