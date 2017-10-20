@@ -119,7 +119,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
       $filename = $filename.$extension;
     }
     else{
-      $filename = 'IMG_0612.JPG';
+      $filename = '59e8b2e1dce2a.jpg';
     }
     $gender = $request->get('gender') ? : 1;
     Session::put('filename',$filename);

@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>{{env('APP_NAME')}}</title>
     <link rel="stylesheet" type="text/css" href="css/pec.percent-max.css?v=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script>
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
@@ -272,7 +273,23 @@
   <div class="abs music_on" onclick="Preload.me.click_music_on();"><img class="ptimg" src="/images/music_icon/music_icon_music_on.png" /></div>
 </div>
 </div>
-
+<div class="right-bottom-banner">
+	<div class="abs b21" >
+	  <div class="abs banner" ><img class="ptimg" src="/banner/b21_banner.png" /></div>
+	</div>
+	<div class="abs b22" >
+	  <div class="abs banner" ><img class="ptimg" src="/banner/b22_banner.png" /></div>
+	</div>
+	<div class="abs b51" >
+	  <div class="abs banner" ><img class="ptimg" src="/banner/b51_banner.png" /></div>
+	</div>
+	<div class="abs b52" >
+	  <div class="abs banner" ><img class="ptimg" src="/banner/b52_banner.png" /></div>
+	</div>
+	<div class="abs b72" >
+	  <div class="abs banner" ><img class="ptimg" src="/banner/b72_banner.png" /></div>
+	</div>
+</div>
 <!--<div class="abs dom-video" id="dom-video">-->
 <!--<video id="myVideo" poster="video/video2.jpg" class="video" controls src="video/video2.webm" webkit-playsinline="true" playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>
 -->

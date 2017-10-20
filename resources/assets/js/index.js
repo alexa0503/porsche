@@ -18,7 +18,6 @@ var screenScale = window.innerHeight/1334;
 if(window.innerHeight < window.innerWidth){
     screenScale = window.innerWidth/1334;
 }
-
 var transform;
 var timer;
 var mc = new Hammer.Manager(hitArea);
@@ -263,6 +262,16 @@ function getMinScale(w,h)
   return minScale;
 }
 $().ready(function(){
+
+    $(window).resize(function() {
+        if(window.innerHeight < window.innerWidth){
+            screenScale = window.innerWidth/1334;
+        }
+        else{
+            screenScale = window.innerHeight/1334;
+        }
+    });
+
   var hasCartoon = false;
   $('.btn-photo,.btn-upload').on('touchend', function(){
 //upload('local');return false;
@@ -278,11 +287,20 @@ $().ready(function(){
         var sourceType = ['camera'];
     }
     */
+    ABC.inUploadPhotoDisableClue = true;//在提交头像的时候，禁用横屏提示
     var sourceType = ['album','camera'];
     wx.chooseImage({
         count: 1, // 默认9
         sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
         sourceType: sourceType,  // 可以指定来源是相册还是相机，默认二者都有
+        complete: function(){
+            setTimeout(function(){
+                ABC.inUploadPhotoDisableClue = false;
+            },3000)
+        },
+        cancel: function(){
+            ABC.inUploadPhotoDisableClue = false;
+        },
         success: function (res) {
             var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
             setTimeout(function () {

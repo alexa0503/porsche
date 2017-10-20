@@ -10,10 +10,41 @@ body,html{
 .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .bg img{max-width: 1334px;}
 
-.clue{display:none;width: 100%; height: 100%; left: 0%; bottom: 0%;z-index:99;}
+.clue{display:none;width: 100%; height: 100%; left: 0%; bottom: 0%;z-index:9999;}
 .clue .clue-bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;background-color:0;}
 
 .clue .clue-ctt{ width: 14.96%; height: 37.34%; left: 42.52%; bottom: 31.25%;}
+
+
+.right-bottom-banner .banner{display:none;}
+.right-bottom-banner{pointer-events:none;/*position:absolute; */width: 100%; height: 100%; left: 0%; bottom: 0%;} 
+.b21{width: 99.78%; height: 100%; left: 0.22%; bottom: 0%;}
+.b21 .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.b21 .bg img{max-width: 1331px;}
+.b21 .banner{ width: 31.18%; height: 12.21%; left: 68.82%; bottom: 12.83%;}
+.b21 .banner img{max-width: 415px;}
+.b22{width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.b22 .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.b22 .bg img{max-width: 1334px;}
+.b22 .banner{ width: 31.11%; height: 12.21%; left: 68.89%; bottom: 12.83%;}
+.b22 .banner img{max-width: 415px;}
+.b51{width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.b51 .bg{ width: 99.93%; height: 100%; left: 0%; bottom: 0%;}
+.b51 .bg img{max-width: 1333px;}
+.b51 .banner{ width: 31.11%; height: 12.21%; left: 68.89%; bottom: 12.83%;}
+.b51 .banner img{max-width: 415px;}
+.b52{width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.b52 .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.b52 .bg img{max-width: 1334px;}
+.b52 .banner{ width: 31.11%; height: 12.21%; left: 68.89%; bottom: 12.83%;}
+.b52 .banner img{max-width: 415px;}
+.b72{width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.b72 .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.b72 .bg img{max-width: 1334px;}
+.b72 .banner{ width: 31.11%; height: 12.21%; left: 68.89%; bottom: 12.83%;}
+.b72 .banner img{max-width: 415px;}
+
+
 
 
 
@@ -35,7 +66,7 @@ body,html{
 	width:100%;
 	height:auto;
 	display:none;
-	bottom:0;
+	bottom:0; 
 }
 .n6 .timeline{ 
 	width: 100%; 
@@ -149,7 +180,7 @@ transform: translateY(-50%);
 .loading_mid .redbar{ width: 53.31%; height: 1.88%; left: 23.65%; bottom: 54.14%;}
 .loading_mid .redbar .inner{ width:0%; height: 100%;}
 .loading_mid .redbar img{/*max-width: 266px;*/width:100%;height:100%;}
-.n2{width: 100%; height: 100%; left: 0%; bottom: 0%;}
+.n2{width: 100%; height: 100%; left: 0%; /*bottom: 0%;*/  top: 0%;  }
 .n2 .gif{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .n2 .gif img{bottom: 0%;}
 .n2 .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;position:relative;padding-bottom:56.43%;}
@@ -159,7 +190,10 @@ transform: translateY(-50%);
 /*.n2 .png_top{ width: 51.8%; height: 34.53%; left: 27.36%; top:25%; transform: translateY(-50%); position:fixed; }*/
 .n2 .png_top{ width: 100%;  height: 100%; left: 0%; top:0%;  position:absolute; }
 /*.n2 .png_top img{bottom:none;top:0px;}*/
-.n2 .png_top img{bottom:0px;}
+.n2 .png_top img{
+	bottom:0px;
+	/*top:0px;*/ 
+}
 
 .btm-red-bar{width:0%;height:100%;position:absolute;background-color:#f00;}
 .btm-red-bar-out{width:100%;height:4px;left:0;bottom:0;position:fixed;}
@@ -167,7 +201,12 @@ transform: translateY(-50%);
 
 
 
-
+.n3-ctt{
+	position:absolute; 
+	top:0px;
+	width:100%;
+	height:100%;
+}
 /*.n3{width: 100%; height: 100%; left: 0%; bottom: 0%;}*/ 
 .n3 .btn-2 .txt{pointer-events:none;}
 .n3 .btn-1 .txt{pointer-events:none;}
@@ -177,9 +216,17 @@ transform: translateY(-50%);
 .n3{width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .n3 .bg{ width: 100%; height: 100%; left: 0%; bottom: 0%;}
 .n3 .bg img{max-width: 1334px;}
-.n3 .bg-light{ width: 66.72%; height: 100%; left: 17.24%; bottom: 0%;}
+.n3 .bg-light{ 
+	width: 66.72%; height: 100%;
+	left: 17.24%;
+	bottom: 0%;
+	/*top:0%;*/
+}
 .n3 .bg-light img{max-width: 890px;}
-.n3 .btn-1{width: 31.86%; height: 70.8%; left: 22.86%; bottom: 16.13%;}
+.n3 .btn-1{width: 31.86%; height: 70.8%; 
+left: 22.86%; bottom: 16.13%;
+/*top:0%;*/
+}
 .n3 .btn-1 .bg{ width: 84%; height: 100%; left: 16%; bottom: 0%;}
 .n3 .btn-1 .bg img{max-width: 357px;}
 .n3 .btn-1 .no-sel{ width: 84%; height: 100%; left: 16%; bottom: 0%;}
