@@ -32,19 +32,27 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
   });
   //图片卡通化
   Route::any('/cartoon', function(Illuminate\Http\Request $request){
+      //x:463,y:725,h:646,w:1334,angle:0.1447,scale:3.7522900169045625
     $scale = $request->scale ? : 1;
-    $x = ceil($request->x);
-    $y = ceil($request->y);
-    $h = ceil($request->h);
-    $w = ceil($request->w);
+    $x = $request->x;
+    $y = $request->y;
+    $h = $request->h;
+    $w = $request->w;
+    $gender = $request->gender ? : 1;
     $angle = round($request->angle,4);
+    \Log::info('x:'.$x.',y:'.$y.',h:'.$h.',w:'.$w.',angle:'.$angle.',scale:'.$scale);
     $filename = session('filename');
     $image = Image::make(storage_path('app/public/' . $filename));
-
+    //$angle = -24.8746;
     if($h > $w){
         //1.先旋转
         $image->rotate(-1*$angle-90);
     }
+    else{
+        $image->rotate(-1*$angle);
+    }
+    $file_cartoon = storage_path('app/public/cartoon/'.$filename);
+    $image->save($file_cartoon);
 
     //缩放
     if($scale != 1){
@@ -54,13 +62,28 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
       });
     }
     //2.裁切
+    if( $gender == 1 ){
+        $face_width = 0.2894;
+        $face_height = 0.6813;
+        $face_left = 0.3531;
+        $face_bttom = 0.0573;
+    }
+    else{
+        $face_width = 0.2901;
+        $face_height = 0.6827;
+        $face_left = 0.3538;
+        $face_bttom = 0.0547;
+    }
     if($h > $w){
         $top = $h/2 - 390/2 + $x;
         $left = 32 + $y;
     }
     else{
-        $top = $h - 520 - 32 + $x;
-        $left = $w/2 - 390/2 + $y;
+        //37.08 92.48 31.5 0.13
+        //$top = $h - 520 - 32 + $x;
+        //$left = $w/2 - 390/2 + $y;
+        $top = round($h - 512 - $h*$face_bttom + $x);
+        $left = round($w - $w*$face_width - $w*$face_left + $y);
     }
 
 
@@ -69,7 +92,8 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
         $image->rotate(90);
     }
     else{
-        $image->crop(390,520,$left,$top);
+        //$image->crop(390,520,$left,$top);
+        $image->crop(round($w*$face_width),round(512),$left,$top);
     }
 
     $file_cartoon = storage_path('app/public/cartoon/'.$filename);
@@ -79,8 +103,9 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
     $process_command =
     'convert -colorspace Gray '.$file_cartoon.' '.$file_cartoon."\n".
     'chmod -R 777 '.$file_cartoon."\n".
-    'convert -modulate 200% '.$file_cartoon.' '.$file_cartoon."\n".
-    'cartoon -p 60 -e 4 -n 6 '.$file_cartoon.' '.$file_cartoon;
+    'convert -modulate 150 '.$file_cartoon.' '.$file_cartoon."\n".
+    'convert -contrast 120 '.$file_cartoon.' '.$file_cartoon."\n".
+    'cartoon -p 80 -e 4 -n 6 '.$file_cartoon.' '.$file_cartoon;
     $process = new Process($process_command);
     $process->start();
     while ($process->isRunning()) {
@@ -119,7 +144,7 @@ Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function
       $filename = $filename.$extension;
     }
     else{
-      $filename = '59e8b2e1dce2a.jpg';
+      $filename = '59ece92471b61.jpeg';
     }
     $gender = $request->get('gender') ? : 1;
     Session::put('filename',$filename);

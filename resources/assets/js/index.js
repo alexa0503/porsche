@@ -58,7 +58,7 @@ mc.on("hammer.input", function(ev) {
 function logEvent(ev) {
   var offset = $('#image').offset();
   //console.log(ev,offset);
-  //$('#logInfo').html(JSON.stringify(transform)+' type:'+ev.type+' rotation:'+ev.rotation+' offset:'+JSON.stringify(offset)+'screen height:'+screen.height+'window height:'+window.innerHeight);
+  //$('#logInfo').html(JSON.stringify(transform)+' type:'+ev.type+' rotation:'+ev.rotation+' offset:'+JSON.stringify(offset)+' screen width:'+window.innerWidth+'window height:'+window.innerHeight);
 }
 
 function resetElement() {
@@ -216,6 +216,13 @@ function onDoubleTap(ev) {
 
 function upload(serverId)
 {
+
+    if(window.innerHeight < window.innerWidth){
+        screenScale = window.innerWidth/1334;
+    }
+    else{
+        screenScale = window.innerHeight/1334;
+    }
   var url = '/wx/'+serverId + '?gender='+ABC.gender;
   $.ajax({
     url: url,
@@ -240,7 +247,6 @@ function upload(serverId)
       initScale = 1;
       initAngle = 0;
       //屏幕,设计稿比例
-      //START_X = (1334 - 498)*(screen.height/1334)/2;
       START_X = 0;
       START_Y = 0;
       resetElement();
@@ -253,25 +259,15 @@ function upload(serverId)
 }
 function getMinScale(w,h)
 {
-  if ( 520/h > 390/w ){
-    var minScale = 390/w;
+  if ( 512/h > 387/w ){
+    var minScale = 512/w;
   }
   else{
-    var minScale = 520/h;
+    var minScale = 387/h;
   }
   return minScale;
 }
 $().ready(function(){
-
-    $(window).resize(function() {
-        if(window.innerHeight < window.innerWidth){
-            screenScale = window.innerWidth/1334;
-        }
-        else{
-            screenScale = window.innerHeight/1334;
-        }
-    });
-
   var hasCartoon = false;
   $('.btn-photo,.btn-upload').on('touchend', function(){
 //upload('local');return false;
@@ -341,6 +337,7 @@ $().ready(function(){
       screenScale:screenScale,
       w:window.innerWidth/screenScale,
       h:window.innerHeight/screenScale,
+      gender:ABC.gender,
       //h:1334,
       _token:window.Laravel.csrfToken
     };
@@ -368,7 +365,8 @@ $().ready(function(){
             hasCartoon = false;
         }
       //location.href='/result';
-    }).fail(function(){
+    }).fail(function(jqXHR, textStatus, errorThrown){
+
       hasCartoon = false;
       alert('图片处理失败,请重试');
     })

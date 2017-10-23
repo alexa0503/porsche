@@ -100,6 +100,7 @@
             <div class="abs face" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_n2_face.png" /></div>
             <div class="abs light" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_n2_light.png" /></div>
             <div class="abs dots" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_n2_dots.png" /></div>
+            <!--<div id="logInfo" style="z-index:1100;color:#fff;"></div>-->
         </div>
         <div class="abs txt-bottom" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_txt-bottom.png" /></div>
         <!--<div class="abs btn-photo css-btn" ><img class="ptimg" src="images/empty.png" original-data="pec/n4_btn-photo.png" /></div>-->
@@ -141,12 +142,10 @@
     <div class="abs movie-bg" ><img class="ptimg" src="images/empty.png" original-data="images/bg.png" /></div>
     <div class="abs n6 movie" >
         <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/n6-movie_bg.png" />--></div>
-        <div class="abs title" ><img class="ptimg" src="images/empty.png" original-data="pec/n6-movie_title.png" /></div>
         <div class="abs timeline"></div>
     </div>
     <div class="abs n7 movie" >
         <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/n7-movie_bg.png" />--></div>
-        <div class="abs title" ><img class="ptimg" src="images/empty.png" original-data="pec/n7-movie_title.png" /></div>
     </div>
     <div class="abs n8" >
         <div class="abs bg" ><img class="ptimg" src="images/empty.png" original-data="pec/n8_bg.jpg" /></div>
@@ -158,11 +157,9 @@
     </div>
     <div class="abs n9" >
         <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/n9-movie_bg.png" />--></div>
-        <div class="abs title" ><img class="ptimg" src="images/empty.png" original-data="pec/n9-movie_title.png" /></div>
     </div>
     <div class="abs n10" >
         <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/n10-movie_bg.png" />--></div>
-        <div class="abs title" ><img class="ptimg" src="images/empty.png" original-data="pec/n10-movie_title.png" /></div>
     </div>
     <div class="abs n11" >
         <div class="abs bg" ><!--<img class="ptimg" src="images/empty.png" original-data="pec/n11_bg.png" />--></div>
