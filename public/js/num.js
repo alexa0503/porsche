@@ -24,6 +24,7 @@ Muz["btn_preview"] = "music/btn_preview.mp3";
 Muz["btn_sport"] = "music/btn_sport.mp3";
 Muz["loop1"] = "music/loop1.mp3";
 Muz["m0"] = "music/m0.mp3";
+Muz["m0loop"] = "music/m0loop.mp3";
 Muz["m1"] = "music/m1.mp3";
 Muz["m5"] = "music/m5.mp3";
 Muz["m9"] = "music/m9.mp3";

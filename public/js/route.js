@@ -1,3 +1,16 @@
+
+
+var txt = navigator.userAgent.toLowerCase();
+if (txt.indexOf("iphone")>-1) {
+	var ver=txt.match(/cpu iphone os (.*?) like mac os/);
+	var ver_num = ver[1].replace(/_/g, ".");
+	var ver_Arr = ver_num.split(".");
+	var ver1 = parseInt(ver_Arr[0]);
+	if (ver1 < 10) {
+		alert("请升级IOS版本至10.0以上" );
+	}
+}
+
 ABC={};
 //
 ABC.start = "n2";
@@ -33,7 +46,8 @@ if(ABC.ispart2){
 }
 
 ABC.pngArr=[];
-ABC.pngArr.push(['1',"images/start2/homepage_super_alpha_000*.png",0,12]);
+//ABC.pngArr.push(['1',"images/start2/homepage_super_alpha_000*.png",0,12]);
+ABC.pngArr.push(['1',"//h5.porschecn-events.cn/images/start3/Homepage_Super_000*.png",0,15]);
 
 ABC.jpgArr=[];
 //ABC.jpgArr.push([0,"0","video/video0.mp4",'jpg',"1"]);
@@ -45,8 +59,8 @@ ABC.jpgArr=[];
 //ABC.jpgArr.push([0,"9","video/video9.mp4",'jpg',"10?"]);
 //ABC.jpgArr.push([0,"11","video/video11.mp4",'jpg','']);
 
-//ABC.jpgRoot = "images/" 
-ABC.jpgRoot = "images/1023/" 
+//ABC.jpgRoot = "images/"
+ABC.jpgRoot = "//h5.porschecn-events.cn/images/1023/"
 ABC.jpgArr.push([3,"0",ABC.jpgRoot+"3/0/*.jpg",1,15,"","0a"]);
 ABC.jpgArr.push([3,"0a",ABC.jpgRoot+"3/0a/*.jpg",1,15,"loop","",'$(".btn-start").fadeIn();an.do_png_top();',false]);
 ABC.jpgArr.push([3,"2",ABC.jpgRoot+"3/2/*.jpg",1,273,"","3?"]);
@@ -71,11 +85,11 @@ ABC.jpgArr.push([4,'12', "images/4/12/*.jpg",1,6,"",""]);
 //video2.webm
 //加载
 ABC.jsArr=[];
-ABC.jsArr.push("/js/pos.js");
-ABC.jsArr.push("/js/num.js");
+ABC.jsArr.push("//h5.porschecn-events.cn/js/pos.js");
+ABC.jsArr.push("//h5.porschecn-events.cn/js/num.js");
 //ABC.jsArr.push("js/jquery.js");
-ABC.jsArr.push("/js/main.js"); 
-ABC.jsArr.push("/js/index.js"); 
+ABC.jsArr.push("//h5.porschecn-events.cn/js/main.js");
+ABC.jsArr.push("//h5.porschecn-events.cn/js/index.js");
 
 
 ABC.isEnterHome=false;
@@ -104,26 +118,26 @@ ABC.btn.push(['n5','.n5 .btns_ .btn-again','h5jump.back(1);']);//预览界面--�
 ABC.btn.push(['n5','.n5 .btns_ .bnt-sure','cn5.load();']);//预览界面--确定
 ABC.btn.push(['share','.share','window.h5jump.doRouteBack(1);console.log("share");']);//预览界面--确定
 ABC.btn.push(['qrcode','.qrcode .black-70','window.h5jump.doRouteBack(1);console.log("qrcode")']);//二维码界面--确定
-ABC.btn.push(['last','.last .btn-quote','CnEnd.me.jumpForm(); ']);//跳转邀请页面  
+ABC.btn.push(['last','.last .btn-quote','CnEnd.me.jumpForm(); ']);//跳转邀请页面
 
 
 ABC.pos2=[];
 ABC.pos2.push([0,0]);
-ABC.pos2.push([0.1,0.7]);
-ABC.pos2.push([0.8,-0.4]);
-ABC.pos2.push([-2.6,-0.6]);
-ABC.pos2.push([-0.5,0.6]);
-ABC.pos2.push([-0.5,0]);
-ABC.pos2.push([-1,-1.6]);
-ABC.pos2.push([-0.8,-0.8]);
-ABC.pos2.push([-0.6,-0.9]);
-ABC.pos2.push([-0.8,-0.8]);
-ABC.pos2.push([-2.9,-0.2]);
-ABC.pos2.push([-0.8,0.1]);
-ABC.pos2.push([-0.6,-1.6]);
-ABC.pos2.push([-0.6,-2.4]);
-ABC.pos2.push([-2.0,-1.3]);
-ABC.pos2.push([1.7,-3.3]);
-ABC.pos2.push([-1.8,-3.6]);
-ABC.pos2.push([-2.2,-0.1]);
-ABC.pos2.push([-2.4,-1.3]);
+ABC.pos2.push([0.156,0.57]);
+ABC.pos2.push([0.869,-0.054]);
+ABC.pos2.push([-2.162,-0.177]);
+ABC.pos2.push([-0.348,0.582]);
+ABC.pos2.push([-0.048,0.599]);
+ABC.pos2.push([-0.402,-1.638]);
+ABC.pos2.push([-0.669,-0.767]);
+ABC.pos2.push([-0.52,-0.882]);
+ABC.pos2.push([-0.735,-0.821]);
+ABC.pos2.push([-2.833,-0.131]);
+ABC.pos2.push([-0.704,0.631]);
+ABC.pos2.push([-0.54,-1.649]);
+ABC.pos2.push([-0.623,-2.382]);
+ABC.pos2.push([-2.094,-0.712]);
+ABC.pos2.push([2.249,-3.001]);
+ABC.pos2.push([-1.48,-3.047]);
+ABC.pos2.push([-2.148,-0.156]);
+ABC.pos2.push([-2.056,-0.917]);

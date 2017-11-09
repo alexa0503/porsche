@@ -247,8 +247,8 @@ function upload(serverId)
       initScale = 1;
       initAngle = 0;
       //屏幕,设计稿比例
-      START_X = 0;
-      START_Y = 0;
+      START_X = (window.innerWidth - nWidth*screenScale)/2;
+      START_Y = (window.innerHeight - nHeight*screenScale)/2;
       resetElement();
     }
   }).fail(function(jqXHR, textStatus, errorThrown) {
@@ -343,7 +343,7 @@ $().ready(function(){
     };
     SiteEvt.dis("exeing");
     //SiteEvt.dis("imgok",{path:''});
-    $('#image').hide();
+    //$('#image').hide();
     //$('#image').attr('src','');
     $.post('/cartoon', data,function(data){
         if( data.ret == 0){
