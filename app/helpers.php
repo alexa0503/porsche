@@ -21,10 +21,10 @@ function cdn( $asset ){
 
     // In case of no match use the last in the array
     end($cdns);
-    return cdnPath( key( $cdns ) , $asset).'?_=20171109';
+    return cdnPath( key( $cdns ) , $asset);
 
 }
 
 function cdnPath($cdn, $asset) {
-    return  "//" . rtrim($cdn, "/") . "/" . ltrim( $asset, "/");
+    return  "http://" . rtrim($cdn, "/") . "/" . ltrim( $asset, "/");
 }
