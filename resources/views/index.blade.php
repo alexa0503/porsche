@@ -20,6 +20,116 @@
     @php
     $js = \EasyWeChat::js();
     @endphp
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109677822-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-109677822-1');
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d5871963e01a1936c8ea6e2d42ae510e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+
+    function track(id){
+        //监测代码
+        console.log(id);
+        _hmt.push(['_trackEvent', 'source', id, 'click']);
+        //gtag('send', 'event',id, 'click','label');
+        if(id=="btn-start-game"){
+            ga('send', 'event', 'button', 'click', 'start');
+        }
+
+        //2
+        if(id=="soundon"){
+            ga('send', 'event', 'button', 'click', 'soundon');
+        }
+        if(id=="soundoff"){
+            ga('send', 'event', 'button', 'click', 'soundoff');
+        }
+
+
+        if(id=="btn-choose-gender-1"){
+            ga('send', 'event', 'button', 'click', 'male');
+        }
+        if(id=="btn-choose-gender-2"){
+            ga('send', 'event', 'button', 'click', 'female');
+        }
+        if(id=="btn-choose-gender-3"){
+            if(ABC.gender==1){
+                ga('send', 'event', 'button', 'click', 'male');
+                //ga('send', 'event', 'button', 'click', 'male-goon');
+            }else{
+                ga('send', 'event', 'button', 'click', 'female');
+                //ga('send', 'event', 'button', 'click', 'female-goon');
+            }
+        }
+
+        //6+7
+        if(id=="btn-photo-1"){
+            ga('send', 'event', 'button', 'click', 'takephoto');
+        }
+        if(id=="btn-photo-2"){
+            ga('send', 'event', 'button', 'click', 'preview');
+        }
+
+        if(id=="btn-photo-again"){
+            ga('send', 'event', 'button', 'click', 'redo');
+        }
+        if(id=="btn-photo-sure"){
+            ga('send', 'event', 'button', 'click', 'confirm');
+        }
+
+        //10
+        if(id=="btn-game-1"){
+            ga('send', 'event', 'button', 'click', 'drift');
+        }
+
+        //11
+        if(id=="btn-game-2"){
+            ga('send', 'event', 'button', 'click', 'sport');
+        }
+
+        //12
+        //if(id=="btn-photo-sure"){
+        //ga('send', 'event', 'button', 'click', 'save');
+        //}
+
+        //13
+
+
+        //14
+        if(id=="btn-last-replay"){
+            ga('send', 'event', 'button', 'click', 'replay');
+
+        }
+
+
+        //14
+        if(id=="btn-last-quote"){
+            ga('send', 'event', 'button', 'click', 'book');
+
+        }
+
+        //15
+        if(id=="btn-last-share"){
+            ga('send', 'event', 'button', 'click', 'share');
+            //ga('send', 'event', 'button', 'click', 'share_success');
+
+        }
+        //16
+        if(id=="btn-last-notice"){
+            ga('send', 'event', 'button', 'click', 'follow');
+
+        }
+
+    }
+    </script>
 </head>
 <body onload='init();' class='Preload'>
     <div class="abs clue" id="clue" >
@@ -196,8 +306,8 @@
         <div class="abs bg" ><img class="ptimg" src="{{cdn('images/empty.png')}}" original-data="{{cdn('pec/share-out_bg.png')}}" /></div>
         <!--<div class="abs photo" ><img class="ptimg" src="{{cdn('images/empty.png')}}" original-data="{{cdn('pec/last_photo.png')}}" /></div>-->
         <div class="abs button" >
-            <div class="abs btn-share btn" onclick='window.share.doAni();'><img class="ptimg" src="{{cdn('images/empty.png')}}" original-data="{{cdn('pec/last_button_btn-share.png')}}" /></div>
-            <div class="abs btn-notice btn" onclick='window.h5jump.doRoute("b",1); '><img class="ptimg" src="{{cdn('images/empty.png')}}" original-data="{{cdn('pec/last_button_btn-notice.png')}}" /></div>
+            <div class="abs btn-share btn" onclick='window.share.doAni();track("btn-last-share");'><img class="ptimg" src="{{cdn('images/empty.png')}}" original-data="{{cdn('pec/last_button_btn-share.png')}}" /></div>
+            <div class="abs btn-notice btn" onclick='window.h5jump.doRoute("b",1);track("btn-last-notice");'><img class="ptimg" src="{{cdn('images/empty.png')}}" original-data="{{cdn('pec/last_button_btn-notice.png')}}" /></div>
             <div class="abs btn-quote btn" ><img class="ptimg" src="{{cdn('images/empty.png')}}" original-data="{{cdn('pec/last_button_btn-quote.png')}}" /></div>
         </div>
         <div class="abs lastphoto" >
@@ -214,7 +324,8 @@
             <!--<div class="abs frame" >-->
             <img class="ptimg frameimg" src="{{cdn('images/empty.png')}}" original-data="{{cdn('lastPhoto/lastphoto_frame.png')}}" />
             <!--</div>-->
-        </div>
+			<div class="abs replay" onclick="window.cn5.replay();track('btn-last-replay')"><img class="ptimg" src="{{cdn('images/empty.png')}}" original-data="{{cdn('lastPhoto/lastphoto_replay.png')}}" /></div>
+	  </div>
 
 
         <div class="abs female" >
@@ -266,8 +377,8 @@
 </div>
 <div class="btm-red-bar-out"><div class="btm-red-bar"></div></div>
 <div class="abs music_icon" id="music_icon">
-  <div class="abs music_off" onclick="Preload.me.click_music_off();"><img class="ptimg" src="{{cdn('/images/music_icon/music_icon_music_off.png')}}" /></div>
-  <div class="abs music_on" onclick="Preload.me.click_music_on();"><img class="ptimg" src="{{cdn('/images/music_icon/music_icon_music_on.png')}}" /></div>
+  <div class="abs music_off" onclick="Preload.me.click_music_off();track('soundon');"><img class="ptimg" src="{{cdn('/images/music_icon/music_icon_music_off.png')}}" /></div>
+  <div class="abs music_on" onclick="Preload.me.click_music_on();track('soundoff');"><img class="ptimg" src="{{cdn('/images/music_icon/music_icon_music_on.png')}}" /></div>
 </div>
 </div>
 <div class="right-bottom-banner">
